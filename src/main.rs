@@ -7,7 +7,7 @@ use std::env;
           };
 
           const LIVE_OFF_NELSON: &str = "
-          @Nelseum#9157 : OFF :no:  shisOPTI  :Oiso: 
+          : OFF :no:  shisOPTI  :Oiso: 
           
           twitch game : **twitch title**
           
@@ -15,14 +15,14 @@ use std::env;
           
           ";
 
-          const HELP_COMMAND: &str = "!help";
+          const LIVE_COMMAND: &str = "!live";
 
           struct Handler;
 
           #[async_trait]
           impl EventHandler for Handler {
             async fn message(&self, ctx: Context, msg: Message) {
-              if msg.content == HELP_COMMAND {
+              if msg.content == LIVE_COMMAND {
                 if let Err(why) = msg.channel_id.say(&ctx.http, LIVE_OFF_NELSON).await {
                 	println!("Error sending message: {:?}", why);
               }
@@ -38,7 +38,7 @@ use std::env;
             let token = env::var("DISCORD_TOKEN")
             .expect("Expected a token in the environment");
 
-            let mut client = Client::new(&token)
+            let mut client = Client::builder(&token)
             .event_handler(Handler)
             .await
             .expect("Err creating client");
