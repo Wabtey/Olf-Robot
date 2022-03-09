@@ -1,9 +1,2 @@
-/bin/
-/.cache-main
 /target
 /Cargo.lock
-
-
-# Added by cargo
-
-/target

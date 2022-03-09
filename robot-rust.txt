@@ -1,0 +1,61 @@
+fabien.rs
+```rust
+pub use std::duration::Duration;
+pub struct Fabien;
+```
+
+main.rs
+```rust
+mod fabien; -> créé un module utilisable dans main.rs
+
+use fabien::Fabien;
+use fabien::Duration;
+```
+
+
+
+pub use something::{};
+	put the use on public
+	export une implementation
+
+programme async (pas parallèle) mais concurrent (peut etre unique à 1 thread)
+
+//macro procedurale -> étendre les possibilités du bloc implementation
+	//pour permettre de lire les methods async
+	//await -> attend que la fn async termine
+
+#[async_trait]			
+impl EventHandler for Handler {
+    methods
+}
+
+//enum : variante d’enum, associe des valeur à des enum (utilisé dans les pattern matching)
+
+
+//TYPE : Err
+```rust
+enum Result {
+  Ok,
+  Err(Error),
+}
+```
+```rust
+enum<T> Result {
+  Ok,
+  Err(T),
+}
+```
+
+//Result return Ok ou Err
+
+//opérateur ?
+	//revoit l’erreur immédiatement
+	//délègue l’erreur à la fonction opérée
+```rust
+fn fonction() -> Result {
+  let flo = fonction_qui_renvois_result()?;
+  //sort de la fonction et renvoie l’erreur à la fonction concernée
+}
+```
+
+//type error custom (fabi_error)
