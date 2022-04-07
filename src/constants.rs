@@ -6,3 +6,5 @@ twitch game : **twitch title**
 https://www.twitch.tv/+user_id";
 
 pub const LIVE_COMMAND: &str = "!live";
+
+pub const ROLL_COMMAND: &str = "!roll";
